@@ -2,16 +2,15 @@ import os
 
 from dotenv import load_dotenv
 from openai import OpenAI
-from crawler.scraper import crawl_website
-from processor.splitter import split_into_chunks
-from utils.helpers import summarize_chunk
+from src.crawler.scraper import crawl_website
+from src.processor.splitter import split_into_chunks
+from src.utils.helpers import summarize_chunk
 
 load_dotenv(override=True)
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
 
 client = OpenAI(api_key=openai_api_key)
-
 
 
 def summarize_website(url):
@@ -34,7 +33,7 @@ def summarize_website(url):
     
     # 4. Combine all chunk summaries into one final summary (Reduce)
     combined_text = " ".join(chunk_summaries)
-    print("🧠 Creating final master summary...")
+    print("\n🧠 Creating final master summary...\n")
     
     final_response = client.chat.completions.create(
         model="gpt-4o-mini",
@@ -45,4 +44,5 @@ def summarize_website(url):
         temperature=0.3
     )
     
+    print(final_response.choices[0].message.content)
     return final_response.choices[0].message.content

@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
+app-file=src/app.py
 dependencies = [
     "bs4>=0.0.2",
     "dotenv>=0.9.9",

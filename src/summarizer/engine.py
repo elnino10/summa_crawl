@@ -2,9 +2,9 @@ import os
 
 from dotenv import load_dotenv
 from openai import OpenAI
-from src.crawler.scraper import crawl_website
-from src.processor.splitter import split_into_chunks
-from src.utils.helpers import summarize_chunk
+from crawler.scraper import crawl_website
+from processor.splitter import split_into_chunks
+from utils.helpers import summarize_chunk
 
 load_dotenv(override=True)
 

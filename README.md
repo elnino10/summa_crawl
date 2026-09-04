@@ -36,7 +36,7 @@ summa_crawl/
 ## Local setup
 
 ```bash
-git clone https://github.com/<your-username>/summa_crawl.git
+git clone https://github.com/elnino10/summa_crawl.git
 cd summa_crawl
 uv sync
 ```
